@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>feel now</title>
+    <link rel="stylesheet"  type="text/css" href="style.css">
+
+    <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <form name="google-sheet">
+    <h1>fill all details</h1>
+    <br><br>
+    <div class="outerbox">
+        <div class="ficon">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+       </div>
+       <div class="fouterbox">
+          <div class="main"> 
+             <div class="left">
+                <input type="text" name="fname" id="" placeholder="first name">
+                <input type="text" name="lname" id="" placeholder="last name">
+                <input type="text" name="email" id="" placeholder="email">
+                <input type="text" name="phone" id="" placeholder="number">
+                male<input type="radio" name="gender" value="male">
+                female<input type="radio" name="gender" value="female">
+                
+                <input type="submit" name="submit" class="submit" style="border-radius: 20px;">
+             </div>
+             <div class="right">
+                <select name="marriedstatus">
+                        <option value="married">married</option>
+                        <option value="unmerried">unmerried</option>
+                 </select>
+                 <select name="experience">
+                    <option value="fresher">fresher</option>
+                    <option value="experienced">experienced</option>
+             </select>
+             <textarea name="address" placeholder="address"></textarea>
+
+             <input type="reset" name="reset" class="reset" style="border-radius: 20px;">
+
+
+             </div>
+
+
+
+
+        </div> 
+       </div>
+           
+            
+    </div>
+</form>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx8jqLr5EE-3OFvykD9rBkukYUbgjko8QFJp52g7KWgUSzf3f0xs37-dQ7WNEowEz9Q/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+
+</body>
+</html>
